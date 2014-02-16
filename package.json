@@ -1,22 +1,23 @@
 {
-  "name": "generator-assemble",
-  "version": "0.4.9",
-  "description": "Creates an Assemble boilerplate projects.",
+  "name": "generator-rpg-site",
+  "version": "0.1.0",
+  "description": "Creates an Assemble-based RPG Site boilerplate project.",
+  "private": true,
   "keywords": [
     "yeoman-generator",
     "assemble",
     "grunt"
   ],
-  "homepage": "https://github.com/assemble/generator-assemble",
-  "bugs": "https://github.com/assemble/generator-assemble/issues",
+  "homepage": "https://github.com/Melindrea/generator-rpg-site",
+  "bugs": "https://github.com/Melindrea/generator-rpg-site/issues",
   "author": {
-    "name": "Hariadi Hinta",
-    "email": "diperakui@yahoo.com"
+    "name": "Marie Hogebrandt",
+    "email": "iam@mariehogebrandt.se"
   },
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/assemble/generator-assemble.git"
+    "url": "https://github.com/Melindrea/generator-rpg-site.git"
   },
   "scripts": {
     "test": "mocha --reporter spec"

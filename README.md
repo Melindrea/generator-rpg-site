@@ -1,19 +1,20 @@
-# Assemble generator [![Build Status](https://travis-ci.org/assemble/generator-assemble.png)](https://travis-ci.org/assemble/generator-assemble)
+# RPG Site generator
 
-> [Yeoman][yeoman] generator for [Assemble][assemble].
+> [Yeoman][yeoman] generator for [Assemble][assemble]. Creates a specific site based on needs for my private chronicles (hence npm link rather than posting it to NPM). Based on [Generator-Assemble][generator-assemble]
 
 ## Getting started
 - Install the generator:
-    `npm install -g generator-assemble`
+    `git clone git@github.com:Melindrea/generator-rpg-site.git`
+    `npm link`
 
 
 ## Usage
 
-Creates an Assemble boilerplate projects.
+Creates an Assemble-based RPG Site boilerplate project.
 
 ```bash
 mkdir project && cd $_
-yo assemble
+yo rpg-site
 ```
 
 #### Options
@@ -39,7 +40,7 @@ yo assemble
 
 
 ## Boilerplate
-The following directory structure generated after run `yo assemble`:
+The following directory structure generated after run `yo rpg-site`:
 
     .
     ├── .editorconfig
@@ -91,3 +92,4 @@ The following directory structure generated after run `yo assemble`:
 
 [yeoman]: http://yeoman.io/
 [assemble]: http://assemble.io
+[generator-assemble]: https://github.com/assemble/generator-assemble
