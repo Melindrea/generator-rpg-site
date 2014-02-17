@@ -3,11 +3,11 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 
 /**
- * Module exports Assemble Generator constructor
+ * Module exports RPGSite Generator constructor
  * Extend Yeoman base generator
  */
 
-var AssembleGenerator = yeoman.generators.Base.extend({
+var RPGSiteGenerator = yeoman.generators.Base.extend({
 
   init: function () {
     this.pkg = require('../package.json');
@@ -33,20 +33,10 @@ var AssembleGenerator = yeoman.generators.Base.extend({
       });
     });
 
-    this.defaultPlugins = {
-        "assemble-contrib-anchors": false,
-        "assemble-contrib-permalinks": true,
-        "assemble-contrib-sitemap": true,
-        "assemble-contrib-toc": false,
-        "assemble-markdown-data": false,
-        "assemble-related-pages": false
-      };
-
     this.config.defaults({
       projectName   : "",
       projectDesc   : "The best project ever.",
-      githubUser    : "assemble",
-      installPlugin : true,
+      githubUser    : "Melindrea",
       author: {
         name        : this.user.git.username || process.env.user || process.env.username,
         login       : "assemble",
@@ -92,57 +82,13 @@ var AssembleGenerator = yeoman.generators.Base.extend({
       default : this.config.get("githubUser")
     });
 
-    (!this.config.get("installPlugin") || force) && questions.push({
-      type    : "confirm",
-      name    : "installPlugin",
-      message : "Do you want to install Assemble plugins?",
-      default : this.config.get("installPlugin")
-    });
-
-    // for first time/re-init, make new list of defaultPlugins
-    if(!this.config.get("installPlugin") || force) {
-      var plugins = this.config.get("plugins");
-      // if we have previous plugin choice
-      if (this._.isArray(plugins)) {
-        var defaultPlugins = {};
-        // convert it to object and assign checked
-        plugins.forEach(function(plugin) {
-          defaultPlugins[plugin] = true;
-        });
-        // concat with defautPlugins
-        for (var key in defaultPlugins) {
-          this.defaultPlugins[key] = defaultPlugins[key];
-        }
-      }
-    }
-
     var choices = [];
-    var pluginObj = this.defaultPlugins;
-
-    // make choice more dynamic and checked from previous choice
-    // TODO: fetch from npm with "assembleplugin" keyword
-    for (var plugin in pluginObj) {
-      if(pluginObj.hasOwnProperty(plugin)){
-        choices.push({ name: plugin, checked: pluginObj[plugin] });
-      }
-    }
-
-    questions.push({
-      name    : "plugins",
-      type    : "checkbox",
-      message : "Which plugins would you like to include?",
-      choices : choices,
-      when: function( answers ) {
-        return answers.installPlugin;
-      }
-    });
 
     this.prompt(questions, function (answers) {
 
       this.projectName = answers.projectName || this.config.get("projectName");
       this.projectDesc = answers.projectDesc || this.config.get("projectDesc");
       this.authorLogin = answers.githubUser || this.config.get("githubUser");
-      this.plugins     = answers.plugins || this.config.get("plugins");
       this.authorName  = this.config.get("author").name;
       this.authorEmail = this.config.get("author").email;
 
@@ -159,7 +105,9 @@ var AssembleGenerator = yeoman.generators.Base.extend({
     this.template('LICENSE-MIT');
     this.template('Gruntfile.js');
     this.template('_package.json', 'package.json');
+    this.template('_bower.json', 'bower.json');
     this.template('editorconfig', '.editorconfig');
+    this.template('bowerrc', '.bowerrc');
     this.template('README.md');
   },
 
@@ -169,7 +117,7 @@ var AssembleGenerator = yeoman.generators.Base.extend({
   },
 
   assets: function () {
-    this.directory('bootstrap', 'dist/assets');
+    this.directory('assets', 'src/assets');
   },
 
   src: function () {
@@ -179,8 +127,6 @@ var AssembleGenerator = yeoman.generators.Base.extend({
     this.mkdir('src/templates/layouts');
     this.mkdir('src/templates/partials');
     this.copy('site.yml', 'src/data/site.yml');
-    this.copy('markdown.md', 'src/content/markdown.md');
-    this.copy('blog.hbs', 'src/templates/pages/blog.hbs');
     this.copy('index.hbs', 'src/templates/pages/index.hbs');
     this.copy('layout.hbs', 'src/templates/layouts/default.hbs');
     this.copy('inc-navbar-fixed-top.hbs', 'src/templates/partials/navbar-fixed-top.hbs');
@@ -195,4 +141,4 @@ var AssembleGenerator = yeoman.generators.Base.extend({
 
 });
 
-module.exports = AssembleGenerator;
+module.exports = RPGSiteGenerator;

@@ -1,0 +1,5 @@
+// Styles that override bootstrap. Should be fairly small
+
+.navbar + .container {
+    margin-top: 40px;
+}

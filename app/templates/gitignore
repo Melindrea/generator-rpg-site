@@ -1,3 +1,38 @@
+.*
+!.gitignore
+!.jshintrc
+!.bowerrc
+!.editorconfig
+!.travis.yml
+!.gitattributes
+!.htaccess
+*~
+*.zip
+dist
+*testing*
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+*.sublime-workspace
+build/
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+### SASS Ignores - "Sassy CSS" http://sass-lang.com/
+*.sass-cache
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
 lib-cov
 *.seed
 *.log
@@ -6,7 +41,6 @@ lib-cov
 *.out
 *.pid
 *.gz
-*.yo-rc.json
 
 pids
 logs
@@ -14,5 +48,6 @@ results
 
 npm-debug.log
 node_modules
+src/bower_components
+skid-row
 
-*.sublime-*
