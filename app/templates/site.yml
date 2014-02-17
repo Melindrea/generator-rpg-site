@@ -1,1 +1,2 @@
 title: <%= _.capitalize(projectName) %>
+root: <%= _.slugify(projectName) %>

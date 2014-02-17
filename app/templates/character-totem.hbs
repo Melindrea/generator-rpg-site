@@ -1,0 +1,18 @@
+<h3>Totem: {{ name }}</h3>
+
+<dl>
+    <dt>Ban</dt>
+    <dd>{{ ban }}</dd>
+    <dt>Individual Traits</dt>
+    <dd><ul>
+        {{#each traits.individual}}
+        <li>{{ this }}</li>
+        {{/each}}
+    </ul></dd>
+    <dt>Pack Traits</dt>
+    <dd><ul>
+        {{#each traits.pack}}
+        <li>{{ this }}</li>
+        {{/each}}
+    </ul></dd>
+</dl>

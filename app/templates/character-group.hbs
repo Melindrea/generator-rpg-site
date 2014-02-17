@@ -1,0 +1,12 @@
+<h2>{{ type }}: {{ name }}</h2>
+
+<p>{{ blurb }}
+
+<h3>Members</h3>
+<ul>
+{{#each membersData}}
+    <li><a href="{{ link }}">{{ name }}</a></li>
+{{/each}}
+</ul>
+
+{{ totemData }}
