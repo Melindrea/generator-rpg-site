@@ -3,10 +3,10 @@ module.exports.register = function (Handlebars, options)  {
         var fs = require('fs'),
         template, out = '', templateName = 'sheet',
         dir = __dirname + '/../partials/character/',
-        skidRow = options.skidRow;
+        <%= _.camelize(_.slugify(projectName)) %> = options.<%= _.camelize(_.slugify(projectName)) %>;
 
         if ('group' in data) {
-            data.group = skidRow.groups[data.group];
+            data.group = <%= _.camelize(_.slugify(projectName)) %>.groups[data.group];
             data.slug = slug;
         }
 

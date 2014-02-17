@@ -49,5 +49,5 @@ results
 npm-debug.log
 node_modules
 src/bower_components
-skid-row
+<%= _.slugify(projectName) %>
 

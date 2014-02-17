@@ -6,11 +6,11 @@ module.exports.register = function (Handlebars, options)  {
         var fs = require('fs'), util = require('util'),
         template, out = '', templateName = 'group',
         dir = __dirname + '/../partials/character/',
-        skidRow = options.skidRow, totemData, membersData,
+        <%= _.camelize(_.slugify(projectName)) %> = options.<%= _.camelize(_.slugify(projectName)) %>, totemData, membersData,
         memberLink = '/characters/%s.html', member, memberData;
 
         if ('totem' in data) {
-            totemData = skidRow.totems[data.totem];
+            totemData = <%= _.camelize(_.slugify(projectName)) %>.totems[data.totem];
 
             template = Handlebars.compile(fs.readFileSync(dir + 'totem.hbs', 'utf8'));
             data.totemData = new Handlebars.SafeString(template(totemData));

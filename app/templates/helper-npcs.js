@@ -1,6 +1,6 @@
 module.exports.register = function (Handlebars, options)  {
     Handlebars.registerHelper('npcs', function (place) {
-        var npcs = options.skidRow.npcs[place],
+        var npcs = options.<%= _.camelize(_.slugify(projectName)) %>.npcs[place],
         out = '';
 
         if (npcs.length === 0) {
